@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "Crash Nodejs",
+    "description": "Learn Nodejs",
+    "published": false,
+    "email": "crash.nodejs@email.com"
+  },
+  {
+    "id": 2,
+    "title": "Learn JavaScript",
+    "description": "Javascript in 10 hours",
+    "published": false,
+    "email": "javascript.10hours@email.com"
+  },
+  {
+    "id": 3,
+    "title": "MERN Bootcamp",
+    "description": "Learn MERN",
+    "published": true,
+    "email": "mern.bootcamp@email.com"
+  },
+  {
+    "id": 4,
+    "title": "RESTful API",
+    "description": "RESTful Made Easy",
+    "published": true,
+    "email": "rest.api.easy@email.com"
+  },
+  {
+    "id": 5,
+    "title": "Jest Testing",
+    "description": "Automated Jest Testing",
+    "published": false,
+    "email": "jest.testing@email.com"
+  }
+]
