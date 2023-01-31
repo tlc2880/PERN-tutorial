@@ -138,8 +138,11 @@ export default class TutorialsList extends Component<Props, State>{
                   onClick={() => this.setActiveTutorial(tutorial, index)}
                   key={index}
                 >
-                  {tutorial.title}
+                  {tutorial.title}, {tutorial.description}
                 </li>
+                // <li>
+                //   Hi there{/*  */}
+                // </li>
               ))}
           </ul>
 
