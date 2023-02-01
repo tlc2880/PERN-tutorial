@@ -1,16 +1,22 @@
 import React from "react";
 
+interface EditableRowProps {
+    editFormData: any;
+    handleEditFormChange: any;
+    handleCancelClick: any;
+}
+
 const EditableRow = ({
   editFormData,
   handleEditFormChange,
   handleCancelClick,
-}) => {
+}: EditableRowProps) => {
   return (
     <tr>
       <td>
         <input
           type="text"
-          required="required"
+          required
           placeholder="Enter a title..."
           name="title"
           value={editFormData.title}
@@ -20,7 +26,7 @@ const EditableRow = ({
       <td>
         <input
           type="text"
-          required="required"
+          required
           placeholder="Enter a description..."
           name="description"
           value={editFormData.description}
@@ -30,7 +36,7 @@ const EditableRow = ({
       <td>
         <input
           type="text"
-          required="required"
+          required
           placeholder="Enter published (true/false)"
           name="published"
           value={editFormData.published}
@@ -40,7 +46,7 @@ const EditableRow = ({
       <td>
         <input
           type="email"
-          required="required"
+          required
           placeholder="Enter an email..."
           name="email"
           value={editFormData.email}
