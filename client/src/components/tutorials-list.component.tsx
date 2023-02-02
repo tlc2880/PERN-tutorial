@@ -138,7 +138,7 @@ export default class TutorialsList extends Component<Props, State>{
                   onClick={() => this.setActiveTutorial(tutorial, index)}
                   key={index}
                 >
-                  {tutorial.title}, {tutorial.description}
+                  {tutorial.title}, {tutorial.description}, {tutorial.email}
                 </li>
               ))}
           </ul>
@@ -163,8 +163,14 @@ export default class TutorialsList extends Component<Props, State>{
               <div>
                 <label>
                   <strong>Description:</strong>
-                </label>{" "}
+                </label>
                 {currentTutorial.description}
+              </div>
+              <div>
+                <label>
+                  <strong>Email:</strong>
+                </label>
+                {currentTutorial.email}
               </div>
               <div>
                 <label>
@@ -172,7 +178,6 @@ export default class TutorialsList extends Component<Props, State>{
                 </label>{" "}
                 {currentTutorial.published ? "Published" : "Pending"}
               </div>
-
               <Link
                 to={"/tutorials/" + currentTutorial.id}
                 className="badge badge-warning"

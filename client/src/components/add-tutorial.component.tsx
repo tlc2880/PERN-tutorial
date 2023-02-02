@@ -13,6 +13,7 @@ export default class AddTutorial extends Component<Props, State> {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
     this.saveTutorial = this.saveTutorial.bind(this);
     this.newTutorial = this.newTutorial.bind(this);
 
@@ -20,6 +21,7 @@ export default class AddTutorial extends Component<Props, State> {
       id: null,
       title: "",
       description: "",
+      email: "",
       published: false,
       submitted: false
     };
@@ -30,17 +32,21 @@ export default class AddTutorial extends Component<Props, State> {
       title: e.target.value
     });
   }
-
   onChangeDescription(e: ChangeEvent<HTMLInputElement>) {
     this.setState({
       description: e.target.value
     });
   }
-
+  onChangeEmail(e: ChangeEvent<HTMLInputElement>) {
+    this.setState({
+      email: e.target.value
+    });
+  }
   saveTutorial() {
     const data: ITutorialData = {
       title: this.state.title,
-      description: this.state.description
+      description: this.state.description,
+      email: this.state.email
     };
 
     TutorialDataService.create(data)
@@ -49,6 +55,7 @@ export default class AddTutorial extends Component<Props, State> {
           id: response.data.id,
           title: response.data.title,
           description: response.data.description,
+          email: response.data.email,
           published: response.data.published,
           submitted: true
         });
@@ -64,13 +71,14 @@ export default class AddTutorial extends Component<Props, State> {
       id: null,
       title: "",
       description: "",
+      email: "",
       published: false,
       submitted: false
     });
   }
 
   render() {
-    const { submitted, title, description } = this.state;
+    const { submitted, title, description, email } = this.state;
 
     return (
       <div className="submit-form">
@@ -109,6 +117,18 @@ export default class AddTutorial extends Component<Props, State> {
               />
             </div>
 
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                type="text"
+                className="form-control"
+                id="email"
+                required
+                value={email}
+                onChange={this.onChangeEmail}
+                name="email"
+              />
+            </div>
             <button onClick={this.saveTutorial} className="btn btn-success">
               Submit
             </button>
