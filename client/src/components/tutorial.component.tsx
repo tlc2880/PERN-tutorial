@@ -20,6 +20,7 @@ export default class Tutorial extends Component<Props, State> {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
     this.getTutorial = this.getTutorial.bind(this);
     this.updatePublished = this.updatePublished.bind(this);
     this.updateTutorial = this.updateTutorial.bind(this);
@@ -30,6 +31,7 @@ export default class Tutorial extends Component<Props, State> {
         id: null,
         title: "",
         description: "",
+        email: "",
         published: false,
       },
       message: "",
@@ -64,6 +66,16 @@ export default class Tutorial extends Component<Props, State> {
     }));
   }
 
+  onChangeEmail(e: ChangeEvent<HTMLInputElement>) {
+    const email = e.target.value;
+    this.setState((prevState) => ({
+      currentTutorial: {
+        ...prevState.currentTutorial,
+        email: email,
+      },
+    }));
+  }
+
   getTutorial(id: string) {
     TutorialDataService.get(id)
       .then((response: any) => {
@@ -82,6 +94,7 @@ export default class Tutorial extends Component<Props, State> {
       id: this.state.currentTutorial.id,
       title: this.state.currentTutorial.title,
       description: this.state.currentTutorial.description,
+      email: this.state.currentTutorial.email,
       published: status,
     };
 
@@ -155,6 +168,17 @@ export default class Tutorial extends Component<Props, State> {
                   id="description"
                   value={currentTutorial.description}
                   onChange={this.onChangeDescription}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="email"
+                  value={currentTutorial.email}
+                  onChange={this.onChangeEmail}
                 />
               </div>
 
